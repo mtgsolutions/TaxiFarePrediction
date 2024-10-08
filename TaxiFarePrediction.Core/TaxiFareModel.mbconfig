@@ -1,0 +1,368 @@
+﻿{
+  "Scenario": "Regression",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\milto\\source\\repos\\TaxiFarePrediction\\TaxiFarePrediction.Core\\Data\\taxi-fare-train.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "vendor_id",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "rate_code",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "passenger_count",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "trip_time_in_secs",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "trip_distance",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "payment_type",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "fare_amount",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmRegression",
+        "Score": 0.91020650565286,
+        "RuntimeInSeconds": 70.402,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e5",
+          "e0": {
+            "OutputColumnNames": [
+              "vendor_id",
+              "payment_type"
+            ],
+            "InputColumnNames": [
+              "vendor_id",
+              "payment_type"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ],
+            "InputColumnNames": [
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "vendor_id",
+              "payment_type",
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfLeaves": 103,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 0.99999977667298645,
+            "NumberOfTrees": 773,
+            "SubsampleFraction": 0.99999977667298645,
+            "MaximumBinCountPerFeature": 288,
+            "FeatureFraction": 0.96091508245552559,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 0.96270155838238047,
+            "LabelColumnName": "fare_amount",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmRegression",
+        "Score": 0.90595251044002034,
+        "RuntimeInSeconds": 419.092,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e5",
+          "e0": {
+            "OutputColumnNames": [
+              "vendor_id",
+              "payment_type"
+            ],
+            "InputColumnNames": [
+              "vendor_id",
+              "payment_type"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ],
+            "InputColumnNames": [
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "vendor_id",
+              "payment_type",
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfLeaves": 188,
+            "MinimumExampleCountPerLeaf": 23,
+            "LearningRate": 0.85310145966390138,
+            "NumberOfTrees": 2979,
+            "SubsampleFraction": 0.99999977667298645,
+            "MaximumBinCountPerFeature": 409,
+            "FeatureFraction": 0.88887441459495431,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 0.29977837390128403,
+            "LabelColumnName": "fare_amount",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.8928339300416962,
+        "RuntimeInSeconds": 7.093,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "vendor_id",
+              "payment_type"
+            ],
+            "InputColumnNames": [
+              "vendor_id",
+              "payment_type"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ],
+            "InputColumnNames": [
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "vendor_id",
+              "payment_type",
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "fare_amount",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.8928339300416962,
+        "RuntimeInSeconds": 7.103,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "vendor_id",
+              "payment_type"
+            ],
+            "InputColumnNames": [
+              "vendor_id",
+              "payment_type"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ],
+            "InputColumnNames": [
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "vendor_id",
+              "payment_type",
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "fare_amount",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.8928339300416962,
+        "RuntimeInSeconds": 7.603,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "vendor_id",
+              "payment_type"
+            ],
+            "InputColumnNames": [
+              "vendor_id",
+              "payment_type"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ],
+            "InputColumnNames": [
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "vendor_id",
+              "payment_type",
+              "rate_code",
+              "passenger_count",
+              "trip_distance"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 6,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "fare_amount",
+            "FeatureColumnName": "Features"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "OneHotEncoding",
+      "e1": "ReplaceMissingValues",
+      "e2": "Concatenate",
+      "e3": "FastTreeRegression",
+      "e4": "FastForestRegression",
+      "e5": "LightGbmRegression",
+      "e6": "LbfgsPoissonRegressionRegression",
+      "e7": "SdcaRegression"
+    },
+    "Schema": "e0 * e1 * e2 * (e3 + e4 + e5 + e6 + e7)",
+    "MetricName": "RSquared",
+    "ModelFilePath": "C:\\Users\\milto\\source\\repos\\TaxiFarePrediction\\TaxiFarePrediction.Core\\TaxiFareModel.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "RegressionTrainingOption",
+    "TrainingTime": 600,
+    "LabelColumn": "fare_amount",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "TrainValidateSplitValidationOption",
+      "SplitRatio": 0.2
+    }
+  }
+}
